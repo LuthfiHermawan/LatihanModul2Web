@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran</title>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            background-color: aliceblue;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-box label,
+        .form-box input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .form-box .error {
+            margin-top: 5px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="form-box">
+            <h1>Formulir Pendaftaran</h1>
+
+            <form onsubmit="return validateForm()" action="#">
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama">
+                <div id="error-nama" class="error"></div>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+                <div id="error-email" class="error"></div>
+
+                <label for="alamat">Alamat:</label>
+                <input type="text" id="alamat">
+                <div id="error-alamat" class="error"></div>
+
+                <button type="submit">Daftar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var nama = document.getElementById('nama').value;
+            var email = document.getElementById('email').value;
+            var alamat = document.getElementById('alamat').value;
+
+            var errorNama = document.getElementById('error-nama');
+            var errorEmail = document.getElementById('error-email');
+            var errorAlamat = document.getElementById('error-alamat');
+
+            errorNama.textContent = "";
+            errorEmail.textContent = "";
+            errorAlamat.textContent = "";
+
+            if (nama === "" || email === "" || alamat === "") {
+                alert("Anda harus mengisi data dengan lengkap!");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
